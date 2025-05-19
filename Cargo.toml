@@ -1,0 +1,12 @@
+[package]
+name = "fast_backend"
+version = "0.1.0"
+edition = "2024"
+
+[dependencies]
+actix-cors = "0.7.1"
+actix-web = "4.11.0"
+reqwest = "0.12.15"
+serde = { version = "1.0", features = ["derive"] }
+tokio = "1.45.0"
+uuid = { version = "1.16.0", features = ["v4"] }
