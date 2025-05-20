@@ -1,32 +1,38 @@
-@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Zen+Tokyo+Zoo&family=Quicksand:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Yomogi&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Permanent+Marker&display=swap');
 
-body {
-    background-color: #0d0d0d;
-    color: #33ff33;
-    font-family: 'VT323', monospace;
-    padding: 40px;
-    margin: 0;
-    image-rendering: pixelated;
-}
 
 .main-container {
     max-width: 600px;
-    margin: auto;
-    border: 2px solid #33ff33;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 50px;
+    border: 2px solid rgba(173, 216, 230, 0.3);
     padding: 30px;
-    background-color: #111;
+    background-color: rgba(10, 20, 40, 0.6);
     text-align: center;
-    box-shadow: 0 0 10px #33ff33;
-    animation: crtGlow 1.5s infinite alternate;
+    box-shadow: 0 0 15px rgba(173, 216, 230, 0.5);
+    border-radius: 12px;
+    animation: shimmer 6s infinite;
+    height: 400px;
 }
 
 .title {
-    font-size: 3rem;
-    color: #00ffcc;
-    margin-bottom: 20px;
-    text-shadow: 0 0 4px #00ffcc, 0 0 8px #00ffcc;
-    border-bottom: 2px dashed #00ffcc;
-    padding-bottom: 10px;
+    font-size: 2.8rem;
+    color: #888cfc;
+    margin-bottom: 10px;
+    padding-bottom: 1px;
+    font-family: "Permanent Marker", cursive;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.subtitle{
+    color: #bde0ff;
+    font-family: "Cherry Bomb One", system-ui;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .submitForm {
@@ -36,65 +42,81 @@ body {
 }
 
 input[type="text"] {
-    padding: 10px;
-    font-size: 1.1rem;
-    font-family: 'VT323', monospace;
-    background-color: #000;
-    color: #33ff33;
-    border: 2px solid #33ff33;
-    border-radius: 0;
+    padding: 12px;
+    font-size: 1rem;
+    background-color: #bde0ff; 
+    color: #442f2f; 
+    border: none;
+    border-radius: 8px;
     outline: none;
     width: 90%;
     margin: 0 auto;
     text-align: center;
+    box-shadow: 0 2px 8px rgba(255, 200, 200, 0.3);
+    transition: all 0.2s ease;
+    font-family: 'Quicksand', sans-serif;
 }
 
 input[type="text"]::placeholder {
-    color: #009900;
-    opacity: 0.7;
+    color: #7a5c5c;
+    opacity: 0.6;
 }
 
 button {
-    background-color: #000;
-    color: #00ffcc;
-    border: 2px solid #00ffcc;
-    padding: 10px 20px;
-    font-family: 'VT323', monospace;
-    font-size: 1.2rem;
+    background-color: #bde0ff; /* soft pink */
+    color: #442f2f;
+    border: none;
+    padding: 12px 24px;
+    font-family: 'Quicksand', sans-serif;
+    font-size: 1rem;
     cursor: pointer;
-    text-transform: uppercase;
-    transition: background 0.2s, color 0.2s;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    letter-spacing: 1px;
+    box-shadow: 0 2px 6px rgba(255, 180, 180, 0.3);
 }
 
 button:hover {
-    background-color: #00ffcc;
-    color: #000;
-    box-shadow: 0 0 5px #00ffcc;
+    background-color: #888cfc;
+    color: #2c1c1c;
+    box-shadow: 0 0 12px rgba(255, 200, 200, 0.4);
 }
 
 .response {
     margin-top: 30px;
+    font-family: 'Quicksand', sans-serif;
 }
 
 .progress {
     margin-top: 20px;
     font-size: 1.5rem;
-    color: #33ff33;
-    text-shadow: 0 0 5px #33ff33;
+    font-weight: bold;
+    color: #e0faff; /* Brighter aqua for better contrast */
+    text-shadow:
+        0 0 5px #e0faff,
+        0 0 10px #aeefff,
+        0 0 15px #89e2ff;
+    backdrop-filter: blur(2px);
+    padding: 6px 12px;
+    border-radius: 6px;
 }
 
-/* CRT and Hacker Animations */
-@keyframes crtGlow {
+
+
+/* Soft shimmer like water light */
+@keyframes shimmer {
     0% {
-        box-shadow: 0 0 8px #33ff33;
+        box-shadow: 0 0 10px rgba(173, 216, 230, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 25px rgba(173, 216, 230, 0.6);
     }
     100% {
-        box-shadow: 0 0 15px #33ff33;
+        box-shadow: 0 0 10px rgba(173, 216, 230, 0.3);
     }
 }
 
-@keyframes blink {
-    50% {
-        opacity: 0.1;
-    }
+#filename {
+    margin-bottom: 10px;
+    font-family: 'Quicksand', sans-serif;
 }

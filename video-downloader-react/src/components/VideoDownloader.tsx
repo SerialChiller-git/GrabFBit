@@ -90,6 +90,7 @@ const VideoDownloader: React.FC = () => {
     return (
         <div className='main-container'>
             <h1 className='title'>Video Downloader</h1>
+            <h3 className='subtitle'>Download any facebook video using the link</h3>
             <form className='submitForm' onSubmit={handleSubmit}>
                 <input
                     type="text"
@@ -102,9 +103,9 @@ const VideoDownloader: React.FC = () => {
             </form>
             {urlLoaded && 
                 <div className='response'>
-                    <input type="text" value={filename} onChange={
+                    <input id='filename' type="text" value={filename} onChange={
                         (e) => setFilename(e.target.value)
-                    } placeholder="Enter filename" />
+                    } placeholder="Enter File Name" />
                     <button onClick={() => saveVideo(response, filename)}>
                         Download
                     </button>
