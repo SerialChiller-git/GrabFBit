@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './VideoDownloader.css';
-import AdComponent from './AdComponent';
 
 const VideoDownloader: React.FC = () => {
     const [videoUrl, setVideoUrl] = useState('');
@@ -118,7 +117,6 @@ const VideoDownloader: React.FC = () => {
                 </div>
             )}
 
-            <AdComponent />
         </div>
     );
 };
