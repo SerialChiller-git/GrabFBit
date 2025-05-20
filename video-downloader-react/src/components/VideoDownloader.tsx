@@ -15,7 +15,7 @@ const VideoDownloader: React.FC = () => {
         event.preventDefault();
         setResponse('');
     
-            const res = await fetch('http://localhost:8080/download', {
+            const res = await fetch('https://vid-downloader.onrender.com/download', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
