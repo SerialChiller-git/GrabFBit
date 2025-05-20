@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import './VideoDownloader.css';
 import AdComponent from './AdComponent';
+import { toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const VideoDownloader: React.FC = () => {
     const [videoUrl, setVideoUrl] = useState('');
@@ -28,6 +30,15 @@ const VideoDownloader: React.FC = () => {
             });
 
             if (!res.ok) {
+               toast.info("Invalid URL", {
+                    position: "top-center",
+                    autoClose: 3000,
+                    hideProgressBar: false,
+                    closeOnClick: true,
+                    pauseOnHover: true,
+                    draggable: true,
+                    theme: "colored",
+                });
                 setResponse('Error downloading video');
                 return;
             }
