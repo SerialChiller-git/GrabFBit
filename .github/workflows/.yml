@@ -1,0 +1,18 @@
+name: Send POST request every 10 minutes
+
+on:
+  schedule:
+    - cron: '*/10 * * * *'  # every 10 minutes
+  workflow_dispatch:        # allows manual trigger
+
+jobs:
+  send_request:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Send POST request to API
+        run: |
+          curl -X POST https://vid-downloader.onrender.com/download \
+          -H "Content-Type: application/json" \
+          -d '{"url":"https://www.facebook.com/61570431862683/videos/pcb.122096042774681062/601456685721866"}'
+
