@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import './VideoDownloader.css';
+import AdComponent from './AdComponent';
 
 const VideoDownloader: React.FC = () => {
     const [videoUrl, setVideoUrl] = useState('');
@@ -116,6 +117,8 @@ const VideoDownloader: React.FC = () => {
                     <p>Download progress: {totalProgress.toFixed(2)}%</p>
                 </div>
             )}
+
+            <AdComponent />
         </div>
     );
 };
