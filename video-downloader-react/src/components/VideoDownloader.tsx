@@ -7,6 +7,7 @@ const VideoDownloader: React.FC = () => {
     const [totalProgress, setTotalProgress] = useState<number>(0);
     const [isDownloading, setIsDownloading] = useState(false);
     const [urlLoaded, setUrlLoaded] = useState(false);
+    const [filename, setFilename] = useState<string>('');
     
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -36,6 +37,10 @@ const VideoDownloader: React.FC = () => {
 
     const saveVideo = async (videoUrl : string, filename= "vid.mp4") => {
         setIsDownloading(true);
+        if(filename === '') {
+            const now = new Date();
+            filename = now.toISOString().replace(/:/g, '-') + '.mp4';
+        }
        
         const resp = await fetch(videoUrl);
 
@@ -97,7 +102,10 @@ const VideoDownloader: React.FC = () => {
             </form>
             {urlLoaded && 
                 <div className='response'>
-                    <button onClick={() => saveVideo(response)}>
+                    <input type="text" value={filename} onChange={
+                        (e) => setFilename(e.target.value)
+                    } placeholder="Enter filename" />
+                    <button onClick={() => saveVideo(response, filename)}>
                         Download
                     </button>
                 </div>
