@@ -1,0 +1,101 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&display=swap');
+
+body {
+    background-color: #0d0d0d;
+    color: #33ff33;
+    font-family: 'VT323', monospace;
+    padding: 40px;
+    margin: 0;
+    image-rendering: pixelated;
+}
+
+.main-container {
+    max-width: 600px;
+    margin: auto;
+    border: 2px solid #33ff33;
+    padding: 30px;
+    background-color: #111;
+    text-align: center;
+    box-shadow: 0 0 10px #33ff33;
+    animation: crtGlow 1.5s infinite alternate;
+}
+
+.title {
+    font-size: 3rem;
+    color: #00ffcc;
+    margin-bottom: 20px;
+    text-shadow: 0 0 4px #00ffcc, 0 0 8px #00ffcc;
+    border-bottom: 2px dashed #00ffcc;
+    padding-bottom: 10px;
+}
+
+.submitForm {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1.1rem;
+    font-family: 'VT323', monospace;
+    background-color: #000;
+    color: #33ff33;
+    border: 2px solid #33ff33;
+    border-radius: 0;
+    outline: none;
+    width: 90%;
+    margin: 0 auto;
+    text-align: center;
+}
+
+input[type="text"]::placeholder {
+    color: #009900;
+    opacity: 0.7;
+}
+
+button {
+    background-color: #000;
+    color: #00ffcc;
+    border: 2px solid #00ffcc;
+    padding: 10px 20px;
+    font-family: 'VT323', monospace;
+    font-size: 1.2rem;
+    cursor: pointer;
+    text-transform: uppercase;
+    transition: background 0.2s, color 0.2s;
+}
+
+button:hover {
+    background-color: #00ffcc;
+    color: #000;
+    box-shadow: 0 0 5px #00ffcc;
+}
+
+.response {
+    margin-top: 30px;
+    animation: blink 1s step-start infinite;
+}
+
+.progress {
+    margin-top: 20px;
+    font-size: 1.5rem;
+    color: #33ff33;
+    text-shadow: 0 0 5px #33ff33;
+}
+
+/* CRT and Hacker Animations */
+@keyframes crtGlow {
+    0% {
+        box-shadow: 0 0 8px #33ff33;
+    }
+    100% {
+        box-shadow: 0 0 15px #33ff33;
+    }
+}
+
+@keyframes blink {
+    50% {
+        opacity: 0.1;
+    }
+}

@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
-import FileSaver from 'file-saver';
+import './VideoDownloader.css';
 
 const VideoDownloader: React.FC = () => {
     const [videoUrl, setVideoUrl] = useState('');
     const [response, setResponse] = useState('');
     const [totalProgress, setTotalProgress] = useState<number>(0);
+    const [isDownloading, setIsDownloading] = useState(false);
+    const [urlLoaded, setUrlLoaded] = useState(false);
     
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -29,9 +31,11 @@ const VideoDownloader: React.FC = () => {
             }
             const textResponse = await res.text();
             setResponse(textResponse);
+            setUrlLoaded(true);
     };
 
     const saveVideo = async (videoUrl : string, filename= "vid.mp4") => {
+        setIsDownloading(true);
        
         const resp = await fetch(videoUrl);
 
@@ -49,7 +53,8 @@ const VideoDownloader: React.FC = () => {
         while(true){
             const {done, value} = await reader.read();
             if(done) {
-                console.log("done");
+                setIsDownloading(false);
+                setUrlLoaded(false);
                 break;   
             }
             chunks.push(value);
@@ -78,9 +83,9 @@ const VideoDownloader: React.FC = () => {
     
 
     return (
-        <div>
-            <h1>Video downlaoder</h1>
-            <form onSubmit={handleSubmit}>
+        <div className='main-container'>
+            <h1 className='title'>Video Downloader</h1>
+            <form className='submitForm' onSubmit={handleSubmit}>
                 <input
                     type="text"
                     value={videoUrl}
@@ -90,15 +95,15 @@ const VideoDownloader: React.FC = () => {
                 />
                 <button type="submit">Download Video</button>
             </form>
-            {response && 
-                <div>
+            {urlLoaded && 
+                <div className='response'>
                     <button onClick={() => saveVideo(response)}>
                         Download
                     </button>
                 </div>
             }
-            {totalProgress > 0 && (
-                <div>
+            {isDownloading && (
+                <div className='progress'>
                     <p>Download progress: {totalProgress.toFixed(2)}%</p>
                 </div>
             )}
