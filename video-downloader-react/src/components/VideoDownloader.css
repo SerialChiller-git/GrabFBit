@@ -120,3 +120,9 @@ button:hover {
     margin-bottom: 10px;
     font-family: 'Quicksand', sans-serif;
 }
+
+
+.ad-container{
+    overflow: hidden; 
+    font-size: 10px; 
+}
