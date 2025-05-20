@@ -2,7 +2,7 @@ body {
   margin: 0;
   padding: 0;
   height: 100vh;
-  background: url("/anime-anime-gif.gif") no-repeat center center fixed;
+  background: url("/f.gif") no-repeat center center fixed;
   background-size: cover;
   image-rendering: pixelated; /* for the retro pixel effect */
   font-family: 'VT323', monospace;
