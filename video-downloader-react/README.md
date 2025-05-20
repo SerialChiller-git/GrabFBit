@@ -1,50 +1,54 @@
-# Video Downloader React
+# React + TypeScript + Vite
 
-This project is a simple React application that allows users to input a video link and download the video from that link using a backend service.
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
 
-## Features
+Currently, two official plugins are available:
 
-- Input field for video link
-- Submit button to download the video
-- Displays download status and errors
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## Technologies Used
+## Expanding the ESLint configuration
 
-- React
-- TypeScript
-- Actix-web (for the backend service)
+If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
 
-## Setup Instructions
+```js
+export default tseslint.config({
+  extends: [
+    // Remove ...tseslint.configs.recommended and replace with this
+    ...tseslint.configs.recommendedTypeChecked,
+    // Alternatively, use this for stricter rules
+    ...tseslint.configs.strictTypeChecked,
+    // Optionally, add this for stylistic rules
+    ...tseslint.configs.stylisticTypeChecked,
+  ],
+  languageOptions: {
+    // other options...
+    parserOptions: {
+      project: ['./tsconfig.node.json', './tsconfig.app.json'],
+      tsconfigRootDir: import.meta.dirname,
+    },
+  },
+})
+```
 
-1. **Clone the repository:**
-   ```
-   git clone <repository-url>
-   cd video-downloader-react
-   ```
+You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
 
-2. **Install dependencies:**
-   ```
-   npm install
-   ```
+```js
+// eslint.config.js
+import reactX from 'eslint-plugin-react-x'
+import reactDom from 'eslint-plugin-react-dom'
 
-3. **Run the application:**
-   ```
-   npm start
-   ```
-
-4. **Access the application:**
-   Open your browser and go to `http://localhost:3000`.
-
-## Usage
-
-- Enter the video link in the input field.
-- Click the "Download" button to initiate the download process.
-- The application will communicate with the backend to fetch the video.
-
-## Backend Setup
-
-Ensure that the backend service is running and accessible. The backend should handle the `/download` endpoint to process video download requests.
-
-## License
-
-This project is licensed under the MIT License.
+export default tseslint.config({
+  plugins: {
+    // Add the react-x and react-dom plugins
+    'react-x': reactX,
+    'react-dom': reactDom,
+  },
+  rules: {
+    // other rules...
+    // Enable its recommended typescript rules
+    ...reactX.configs['recommended-typescript'].rules,
+    ...reactDom.configs.recommended.rules,
+  },
+})
+```
