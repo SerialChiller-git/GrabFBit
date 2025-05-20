@@ -1,30 +1,29 @@
-# Stage 1 - Build the Rust binary
-FROM rust:1.78 as builder
+# Stage 1: Build on Debian Bookworm
+FROM debian:bookworm AS builder
+
+RUN apt-get update && apt-get install -y curl build-essential pkg-config libssl-dev
+
+# Install Rust
+RUN curl https://sh.rustup.rs -sSf | sh -s -- -y
+ENV PATH="/root/.cargo/bin:${PATH}"
 
 WORKDIR /app
 COPY . .
-
-# Build dependencies first (for caching)
-RUN cargo fetch
 RUN cargo build --release
 
-# Stage 2 - Final image
+# Stage 2: Run on Debian Bookworm Slim
 FROM debian:bookworm-slim
 
-# Install yt-dlp and other dependencies
-RUN apt-get update && apt-get install -y \
-    python3 \
-    python3-pip \
-    ca-certificates \
-    && pip3 install yt-dlp \
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv ca-certificates \
+    && python3 -m venv /opt/venv \
+    && /opt/venv/bin/pip install --upgrade pip yt-dlp \
     && apt-get clean
 
+ENV PATH="/opt/venv/bin:$PATH"
 
-# Copy the binary from builder stage
+
 COPY --from=builder /app/target/release/fast_backend /usr/local/bin/app
 
-# Expose the port your app runs on (change if needed)
 EXPOSE 8080
 
-# Start your app
 CMD ["/usr/local/bin/app"]
