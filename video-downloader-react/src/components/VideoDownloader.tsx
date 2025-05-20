@@ -11,6 +11,7 @@ const VideoDownloader: React.FC = () => {
     const [isDownloading, setIsDownloading] = useState(false);
     const [urlLoaded, setUrlLoaded] = useState(false);
     const [filename, setFilename] = useState<string>('');
+    const [isLoading, setIsLoading] = useState(false);
     
 
     const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
@@ -20,7 +21,7 @@ const VideoDownloader: React.FC = () => {
     const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
         event.preventDefault();
         setResponse('');
-    
+        setIsLoading(true);
             const res = await fetch('https://vid-downloader.onrender.com/download', {
                 method: 'POST',
                 headers: {
@@ -28,7 +29,7 @@ const VideoDownloader: React.FC = () => {
                 },
                 body: JSON.stringify({ url: videoUrl }),
             });
-
+        setIsLoading(false);
             if (!res.ok) {
                toast.info("Invalid URL", {
                     position: "top-center",
@@ -113,6 +114,7 @@ const VideoDownloader: React.FC = () => {
                 />
                 <button type="submit">Download Video</button>
             </form>
+            {isLoading && <p>Video is loading</p>}
             {urlLoaded && 
                 <div className='response'>
                     <input id='filename' type="text" value={filename} onChange={
