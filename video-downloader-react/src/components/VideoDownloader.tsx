@@ -89,7 +89,7 @@ const VideoDownloader: React.FC = () => {
 
     return (
         <div className='main-container'>
-            <h1 className='title'>GrabFB</h1>
+            <h1 className='title'>GrabFBit</h1>
             <h3 className='subtitle'>Download any facebook video using the link</h3>
             <form className='submitForm' onSubmit={handleSubmit}>
                 <input
