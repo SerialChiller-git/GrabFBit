@@ -1,10 +1,13 @@
 body {
   margin: 0;
   padding: 0;
-  height: 100vh;
-  background: url("/f.gif") no-repeat center center fixed;
+  height: 130vh;
+  background-image: url("https://w.wallhaven.cc/full/4o/wallhaven-4o727m.jpg");
   background-size: cover;
   image-rendering: pixelated; /* for the retro pixel effect */
   font-family: 'VT323', monospace;
   color: #fff;
+}
+*, *::before, *::after {
+  box-sizing: border-box;
 }

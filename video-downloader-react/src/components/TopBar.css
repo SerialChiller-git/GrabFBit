@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=VT323&family=Zen+Tokyo+Zoo&family=Quicksand:wght@400;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Cherry+Bomb+One&family=Permanent+Marker&display=swap');
+
+
+.mainContainer{
+    background-image: url("https://w.wallhaven.cc/full/5d/wallhaven-5d1lz1.jpg");
+    background-size: cover;
+    height: 230px;
+    width: 100%;
+    margin: auto;
+}
+
+
+.topbar-title {
+    color: #ffff00;
+    font-family: 'Fira Mono', 'Consolas', 'Monaco', monospace;
+    font-size: 16px;
+    font-weight: normal;
+    letter-spacing: 0.5px;
+    margin-left: 10px;
+}
+
+.titlebg{
+    height: 20px;
+    width: 100%;
+    background: linear-gradient(90deg, #0a1a3c 0%, #6a4cff 100%);
+    display: flex;
+    align-items: center;
+    padding-left: 0px;
+    margin: auto;
+}
+
+.mainContainer-text {
+    color: #E2D523;
+    font-size: 28px;
+    font-family: "Permanent Marker", cursive;
+    text-shadow: 1px 1px 4px #000;
+    position: relative;
+    top: 80px; /* adjust as needed */
+    left: 46%;
+}

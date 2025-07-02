@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import './VideoDownloader.css';
-import AdComponent from './AdComponent';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -102,7 +101,6 @@ const VideoDownloader: React.FC = () => {
 
     return (
         <div className='main-container'>
-            <h1 className='title'>GrabFBit</h1>
             <h2 className='subtitle'>Grab videos from Facebook, Instagram, and Twitter—fast and simple</h2>
             <form className='submitForm' onSubmit={handleSubmit}>
                 <input
@@ -130,9 +128,6 @@ const VideoDownloader: React.FC = () => {
                     <p>Download progress: {totalProgress.toFixed(2)}%</p>
                 </div>
             )}
-            <div className='ad-container'>
-                <AdComponent />
-            </div>
 
         </div>
     );

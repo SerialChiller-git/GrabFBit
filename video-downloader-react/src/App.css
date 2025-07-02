@@ -1,3 +1,25 @@
 .ad{
   margin-top: 70%;
 }
+
+.appContainer{
+  margin-top: 150px;
+  background-color: #FBFBDD;
+  height: 107vh;
+  width: 82%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 100px;
+  border-top-width: 3px;
+  border-top-style: solid;
+  border-top-color: rgb(227, 227, 227);
+  border-left-width: 3px;
+  border-left-style: solid;
+  border-left-color: rgb(227, 227, 227);
+  border-bottom-width: 3px;
+  border-bottom-style: solid;
+  border-bottom-color: rgb(51, 51, 51);
+  border-right-width: 3px;
+  border-right-style: solid;
+  border-right-color: rgb(51, 51, 51);
+}
