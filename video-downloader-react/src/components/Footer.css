@@ -30,9 +30,9 @@
     cursor: pointer;
 }
 
-@media (max-width: 1600px) {
+@media (max-width: 1200px) {
     .footerContainer{
-        height: 300px;
+        height: 350px;
         padding-left: 70px;
         padding-right: 20px;
     }
