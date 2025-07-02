@@ -39,3 +39,21 @@
     top: 80px; /* adjust as needed */
     left: 46%;
 }
+
+@media (max-width: 600px) {
+  .mainContainer {
+    height: 60px;
+    padding: 0 8px;
+    background-size: cover;
+    background-position: center;
+  }
+  .mainContainer-text {
+    font-size: 16px;
+    top: 20px;
+    left: 6px;
+  }
+  .topbar-title {
+    font-size: 13px;
+    margin-left: 4px;
+  }
+}

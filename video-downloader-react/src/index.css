@@ -17,6 +17,10 @@ img {
   display: block;
 }
 @media (max-width: 600px) {
+  body {
+    height: auto;
+    min-height: 100vh;
+  }
   .appContainer,
   .footerContainer {
     width: 98%;
