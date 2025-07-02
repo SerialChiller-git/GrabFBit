@@ -11,3 +11,25 @@ body {
 *, *::before, *::after {
   box-sizing: border-box;
 }
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+@media (max-width: 600px) {
+  .appContainer,
+  .footerContainer {
+    width: 98%;
+    max-width: 100%;
+    padding: 4vw 2vw;
+    margin-top: 12vw;
+  }
+  .mainContainer-text {
+    font-size: 18px;
+    left: 10px;
+    top: 30px;
+  }
+  .topbar-title {
+    font-size: 14px;
+  }
+}
