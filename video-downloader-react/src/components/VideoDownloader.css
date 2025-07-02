@@ -13,8 +13,8 @@
     box-shadow: 0 0 15px rgba(173, 216, 230, 0.5);
     border-radius: 12px;
     animation: shimmer 6s infinite;
-    height: 400px;
-    width: 800px;
+    height: 40%;
+    width: 60%;
 }
 
 .title {
@@ -89,7 +89,7 @@ button {
     border-top-style: solid;
     border-top-color: rgb(227, 227, 227);
     font-family: 'Quicksand', sans-serif;
-    width: 400px;
+    width: 50%;
     margin-left: auto;
     margin-right: auto;
 }
@@ -140,3 +140,4 @@ button:hover {
     overflow: hidden; 
     font-size: 10px; 
 }
+

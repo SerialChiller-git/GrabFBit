@@ -5,9 +5,14 @@
 .appContainer {
   margin-top: 5vw;
   background-color: #FBFBDD;
+<<<<<<< HEAD
   min-height: 60vh; /* Use min-height instead of height */
   width: 90%;
   max-width: 900px;
+=======
+  height: 100%;
+  width: 82%;
+>>>>>>> ee60a73 (responsive)
   margin-left: auto;
   margin-right: auto;
   margin-bottom: 40px;

@@ -7,6 +7,7 @@
     background-size: cover;
     height: 230px;
     width: 100%;
+    align-items: center;
     margin: auto;
 }
 
@@ -21,7 +22,7 @@
 }
 
 .titlebg{
-    height: 20px;
+    height: 40%;
     width: 100%;
     background: linear-gradient(90deg, #0a1a3c 0%, #6a4cff 100%);
     display: flex;
@@ -36,24 +37,14 @@
     font-family: "Permanent Marker", cursive;
     text-shadow: 1px 1px 4px #000;
     position: relative;
-    top: 80px; /* adjust as needed */
-    left: 46%;
+    top: 50%;
+    left: 45.9%;
+    transition: all 0.2s;
 }
 
-@media (max-width: 600px) {
-  .mainContainer {
-    height: 60px;
-    padding: 0 8px;
-    background-size: cover;
-    background-position: center;
-  }
-  .mainContainer-text {
-    font-size: 16px;
-    top: 20px;
-    left: 6px;
-  }
-  .topbar-title {
-    font-size: 13px;
-    margin-left: 4px;
-  }
+@media (max-width: 768px) {
+    .mainContainer-text {
+    left: 38%;
 }
+}
+
