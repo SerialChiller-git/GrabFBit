@@ -14,14 +14,10 @@ pub async fn download_video(req : web::Json<models::DownloadRequest>) -> impl Re
         .output();
     match output {
         Ok(o) => {
-            if o.status.success() {
                 HttpResponse::Ok()
                 .append_header(("Content-Disposition", "attachment; filename=\"kek.mp4\""))
                 .body(o.stdout)
-            }
-            else{
-                HttpResponse::BadRequest().body("Error: Failed to download video")
-            }
+
         }
         Err(e) => HttpResponse::InternalServerError().body(format!("Error: {}", e)),
     }
