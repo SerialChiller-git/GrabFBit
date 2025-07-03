@@ -30,6 +30,7 @@ const VideoDownloader: React.FC = () => {
             });
         setIsLoading(false);
             if (!res.ok) {
+                console.log(res);
                toast.info("Invalid URL", {
                     position: "top-center",
                     autoClose: 3000,
