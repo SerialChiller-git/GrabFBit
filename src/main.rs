@@ -10,12 +10,12 @@ mod models;
 #[post("/download")]
 pub async fn download_video(req : web::Json<models::DownloadRequest>) -> impl Responder {
     let output = Command::new("yt-dlp")
-        .args(&["-g",  &req.url])
+        .args(&["-g", "-f", "b",  &req.url])
         .output();
     match output {
         Ok(o) => {
                 HttpResponse::Ok()
-                .append_header(("Content-Disposition", "attachment; filename=\"kek.mp4\""))
+                .content_type("text/plain; charset=utf-8")
                 .body(o.stdout)
 
         }
