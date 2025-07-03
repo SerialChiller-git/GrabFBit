@@ -14,7 +14,7 @@ RUN cargo build --release
 # Stage 2: Run on Debian Bookworm Slim
 FROM debian:bookworm-slim
 
-RUN apt-get update && apt-get install -y python3 python3-pip python3-venv ca-certificates \
+RUN apt-get update && apt-get install -y python3 python3-pip python3-venv ca-certificates ffmpeg\
     && python3 -m venv /opt/venv \
     && /opt/venv/bin/pip install --upgrade pip yt-dlp \
     && apt-get clean
