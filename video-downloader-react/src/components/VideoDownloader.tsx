@@ -102,7 +102,7 @@ const VideoDownloader: React.FC = () => {
 
     return (
         <div className='main-container'>
-            <h2 className='subtitle'>Grab videos from Facebook, Instagram, and Twitter—fast and simple</h2>
+            <h2 className='subtitle'>Grab videos from Facebook and Twitter—fast and simple</h2>
             <form className='submitForm' onSubmit={handleSubmit}>
                 <input
                     type="text"
