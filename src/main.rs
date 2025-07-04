@@ -1,4 +1,3 @@
-
 use std::process::Command;
 
 use actix_web::{ post, web, App, HttpResponse, HttpServer, Responder};
@@ -9,19 +8,24 @@ mod models;
 
 #[post("/download")]
 pub async fn download_video(req : web::Json<models::DownloadRequest>) -> impl Responder {
-    let output = Command::new("yt-dlp")
+    let output = Command::new("/opt/venv/bin/yt-dlp")
         .args(&["-g", "-f", "b",  &req.url])
         .output();
+
     match output {
         Ok(o) => {
+            if o.status.success() {
                 HttpResponse::Ok()
-                .content_type("text/plain; charset=utf-8")
-                .body(o.stdout)
-
+                    .append_header(("Content-Disposition", "attachment; filename=\"kek.mp4\""))
+                    .body(o.stdout)
+            } else {
+                // Return stderr as part of the error response for debugging
+                let err_msg = String::from_utf8_lossy(&o.stderr);
+                HttpResponse::BadRequest().body(format!("Error: Failed to download video\n{}", err_msg))
+            }
         }
         Err(e) => HttpResponse::InternalServerError().body(format!("Error: {}", e)),
     }
-
 }
 
 
