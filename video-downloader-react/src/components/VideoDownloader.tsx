@@ -88,7 +88,7 @@ const VideoDownloader: React.FC = () => {
          const url = URL.createObjectURL(blob);
          const a = document.createElement('a');
          a.href = url;
-         a.download = filename;
+         a.download = filename.endsWith('.mp4') ? filename : filename + '.mp4';
          const revokeObjectURL = () => {
              setTimeout(() => {
                  URL.revokeObjectURL(url);
